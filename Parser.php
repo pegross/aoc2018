@@ -14,7 +14,8 @@ abstract class Parser
      */
     static function getInput(int $day): string
     {
-        return file_get_contents("./inputs/input{$day}.txt");
+        return file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . "inputs"
+                . DIRECTORY_SEPARATOR . "{$day}.txt");
     }
 
 }
