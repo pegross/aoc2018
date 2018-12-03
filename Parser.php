@@ -18,4 +18,16 @@ abstract class Parser
                 . DIRECTORY_SEPARATOR . "{$day}.txt");
     }
 
+
+    /**
+     * Return the input as an array, split by newline. Removes empty lines.
+     * @param int $day
+     * @return array
+     */
+    static function getInputArray(int $day) : array
+    {
+        return array_filter(explode("\n", Parser::getInput($day)), function ($value) {
+            return $value !== '';
+        });
+    }
 }
