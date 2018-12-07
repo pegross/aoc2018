@@ -9,16 +9,17 @@ $arr = array_filter(explode("\n", Parser::getInput(1)), function ($value) {
 });
 
 $result = 0;
-$reached = [0];
+$reached = [];
+$reached[0] = true;
 
 while (true) {
     foreach ($arr as $item) {
         $result += intval($item);
-        if (in_array($result, $reached)) {
+        if ($reached[$result]) {
             echo $result . PHP_EOL;
             break 2;
         } else {
-            array_push($reached, $result);
+            $reached[$result] = true;
         }
     }
 }
